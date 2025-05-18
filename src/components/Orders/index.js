@@ -9,6 +9,7 @@ import {
   InnerContainer,
   OrderDelivery,
   OrderDetails,
+  OrderDetails2,
   OrderHeading,
   OrderId,
   OrderImageContainer,
@@ -24,6 +25,7 @@ import {
   PriceOrderContainer,
   TrackOrder,
 } from './Orders.styles';
+import DownloadInvoice from '../common/DownloadInvoice';
 
 const calculateTotalCost = (order) => {
   const totalCost = order.products.reduce(
@@ -36,6 +38,14 @@ function Orders() {
   const styles = OrderStyles();
   const [orders, setOrders] = useState([]);
   const [loading, setLoading] = useState(true);
+  const data = {
+    id: 'ORD-1001',
+    customer: { name: 'John Doe', email: 'john@example.com' },
+    items: [
+      { name: 'Mouse', price: 25.0, quantity: 2 },
+      { name: 'Keyboard', price: 45.0, quantity: 1 },
+    ]
+}
   const handleCancel = async (id) => {
     const index = orders.findIndex((temporder) => temporder._id === id);
     const order = orders[index];
@@ -82,7 +92,10 @@ function Orders() {
                     </span>
                   </OrderPlaced>
                 </div>
-                <TrackOrder>Track Order</TrackOrder>
+                <OrderDetails2>
+                  <DownloadInvoice className={styles.invoiceButton} order={data} />
+                  <TrackOrder>Track Order</TrackOrder>
+                </OrderDetails2>
               </OrderDetails>
               {order.products.map((product) => (
                 <OrderSpecificDetails key={product._id}>

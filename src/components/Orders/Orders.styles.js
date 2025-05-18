@@ -28,6 +28,18 @@ const OrderStyles = makeStyles({
       flexDirection: 'column',
     },
   },
+  invoiceButton: {
+    backgroundColor: 'skyblue',
+    color: 'white',
+    padding: '10px 30px',
+    borderRadius: '20px',
+    alignSelf: 'flex-end',
+    '@media(max-width: 600px)': {
+      padding: '10px 0px 10px 10px',
+      width: '100%',
+      textAlign: 'center',
+    },
+  },
 });
 
 const OuterContainer = styled.div`
@@ -85,6 +97,15 @@ const OrderDetails = styled.div`
     flex-direction: column;
   }
 `;
+const OrderDetails2 = styled.div`
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 20px;
+  flex-direction: row;
+  @media (max-width: 600px) {
+    flex-direction: column;
+  }
+`;
 const TrackOrder = styled.div`
   padding: 10px 30px;
   border-top-left-radius: 20px;
@@ -100,6 +121,7 @@ const TrackOrder = styled.div`
     text-align: center;
   }
 `;
+
 const OrderSpecificDetails = styled.div`
   display: flex;
   border-top: 1px solid #80808070;
@@ -149,6 +171,7 @@ export {
   OrderId,
   OrderPlaced,
   OrderDetails,
+  OrderDetails2,
   TrackOrder,
   OrderSpecificDetails,
   OrderImageContainer,
