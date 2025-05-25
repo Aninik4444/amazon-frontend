@@ -22,7 +22,7 @@ axiosInstance.interceptors.response.use(
       window.location.reload();
       toast.warning('Session Expired, Please Login Again');
     }
-  }
+  },
 );
 
 const apiGetCall = async (url) => {

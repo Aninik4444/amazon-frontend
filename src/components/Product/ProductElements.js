@@ -65,5 +65,5 @@ export {
   ProductImage,
   ProductButton,
   ProductInfo,
-  ProductVideo
+  ProductVideo,
 };

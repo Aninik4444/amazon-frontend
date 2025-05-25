@@ -42,7 +42,7 @@ function Home() {
   const handleFilters = async () => {
     if (page === 1) {
       const res = await apiGetCall(
-        `/products?page=${page}&name=${search}&select=-description&category=${category}&numericFilters=price>${priceRange[0]},price<${priceRange[1]},rating>${ratingRange[0]},rating<${ratingRange[1]}&inStock=${inStock}`
+        `/products?page=${page}&name=${search}&select=-description&category=${category}&numericFilters=price>${priceRange[0]},price<${priceRange[1]},rating>${ratingRange[0]},rating<${ratingRange[1]}&inStock=${inStock}`,
       );
 
       setProducts(res.data.products);

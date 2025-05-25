@@ -30,7 +30,7 @@ import DownloadInvoice from '../common/DownloadInvoice';
 const calculateTotalCost = (order) => {
   const totalCost = order.products.reduce(
     (acc, product) => acc + product.productPrice * product.quantity,
-    0
+    0,
   );
   return totalCost;
 };
@@ -38,14 +38,7 @@ function Orders() {
   const styles = OrderStyles();
   const [orders, setOrders] = useState([]);
   const [loading, setLoading] = useState(true);
-  const data = {
-    id: 'ORD-1001',
-    customer: { name: 'John Doe', email: 'john@example.com' },
-    items: [
-      { name: 'Mouse', price: 25.0, quantity: 2 },
-      { name: 'Keyboard', price: 45.0, quantity: 1 },
-    ]
-}
+
   const handleCancel = async (id) => {
     const index = orders.findIndex((temporder) => temporder._id === id);
     const order = orders[index];
@@ -93,7 +86,7 @@ function Orders() {
                   </OrderPlaced>
                 </div>
                 <OrderDetails2>
-                  <DownloadInvoice className={styles.invoiceButton} order={data} />
+                  <DownloadInvoice className={styles.invoiceButton} order={order} />
                   <TrackOrder>Track Order</TrackOrder>
                 </OrderDetails2>
               </OrderDetails>
